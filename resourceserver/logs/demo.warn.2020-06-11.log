@@ -1,0 +1,3 @@
+2020-06-11 14:53:12 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.mypro.demo.resourceserver]' package. Please check your configuration.
+2020-06-11 14:58:11 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.mypro.demo.resourceserver]' package. Please check your configuration.
+2020-06-11 16:28:25 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.mypro.demo.resourceserver]' package. Please check your configuration.

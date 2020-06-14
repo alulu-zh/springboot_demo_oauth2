@@ -51,8 +51,8 @@ spring:
             client-name: myapp
             scope: read_user
             provider: myapp-provider
-#            redirect-uri: "http://localhost:8211/login/oauth2/code"
-            redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+            redirect-uri: "http://127.0.0.1:8211/login/oauth2/code/myapp"
+#            redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
             client-authentication-method: basic
             authorization-grant-type: authorization_code
         provider:
@@ -60,7 +60,7 @@ spring:
             token-uri: http://localhost:8221/oauth/token
             authorization-uri: http://localhost:8221/oauth/authorize
             user-info-uri: http://localhost:8221/user/me
-            user-name-attribute: name
+            user-name-attribute: username
 
 #auth-server: http://localhost:8111 # 认证服务器地址
 #

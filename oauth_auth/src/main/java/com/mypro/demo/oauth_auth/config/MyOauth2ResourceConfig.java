@@ -7,8 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 public class MyOauth2ResourceConfig extends ResourceServerConfigurerAdapter {
     private AuthenticationManager authenticationManager;
 
@@ -24,11 +24,11 @@ public class MyOauth2ResourceConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .requestMatchers()
+//                .requestMatchers()
 //                .antMatchers("/login/**")
-                .antMatchers("/user/**")
-//                .antMatchers("/oauth/**", "/api/**")
-                .and()
+//                .antMatchers("/user/**")
+//                .antMatchers("/oauth/**")
+//                .and()
 //                .cors()
 //                .and()
                 .authorizeRequests()
@@ -37,7 +37,7 @@ public class MyOauth2ResourceConfig extends ResourceServerConfigurerAdapter {
                 .and()
 //                .sessionManagement(sessionManagement ->
 //                        sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-                .formLogin().permitAll();
+                .formLogin();
 //                .and()
 //                .csrf().disable();
     }

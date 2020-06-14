@@ -2,6 +2,7 @@ package com.mypro.demo.oauth_auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,7 +17,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
 @Configuration
-@EnableWebSecurity(debug = true)
+//@EnableWebSecurity(debug = true)
+@Order(1)
 public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
@@ -45,11 +47,10 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-//                .requestMatchers()
-//                .antMatchers("/login/**")
-//                .antMatchers("/login")
-//                .antMatchers("/oauth/**", "/api/**")
-//                .and()
+                .requestMatchers()
+                .antMatchers("/login/**")
+                .antMatchers("/oauth/**", "/api/**")
+                .and()
 //                .cors()
 //                .and()
                 .authorizeRequests()
@@ -58,7 +59,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 //                .sessionManagement(sessionManagement ->
 //                        sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-                .formLogin();
+                .formLogin().permitAll();
 //                .and()
 //                .csrf().disable();
     }

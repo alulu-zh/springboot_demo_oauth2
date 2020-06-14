@@ -1,31 +1,28 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+# Copy from https://github.com/github/gitignore/blob/master/Go.gitignore
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Test binary, built with `go test -c`
+*.test
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+# Dependency directories (remove the comment below to include it)
+# vendor/
 
-### VS Code ###
-.vscode/
+
+# Our config
+third/point-sys/
+third/thrift/gen-go/
+bin/
+output/
+.idea/
+pkg/
+tools/*
+!tools/*.go
+.statsd/

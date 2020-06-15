@@ -7,28 +7,28 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-//@Configuration
-//@EnableResourceServer
+@Configuration
+@EnableResourceServer
 public class MyOauth2ResourceConfig extends ResourceServerConfigurerAdapter {
-    private AuthenticationManager authenticationManager;
-
-    public MyOauth2ResourceConfig(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-    }
-
-    @Override
-    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.authenticationManager(authenticationManager);
-    }
+//    private AuthenticationManager authenticationManager;
+//
+//    public MyOauth2ResourceConfig(AuthenticationManager authenticationManager) {
+//        this.authenticationManager = authenticationManager;
+//    }
+//
+//    @Override
+//    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+//        resources.authenticationManager(authenticationManager);
+//    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-//                .requestMatchers()
+                .requestMatchers()
 //                .antMatchers("/login/**")
-//                .antMatchers("/user/**")
+                .antMatchers("/user/**")
 //                .antMatchers("/oauth/**")
-//                .and()
+                .and()
 //                .cors()
 //                .and()
                 .authorizeRequests()

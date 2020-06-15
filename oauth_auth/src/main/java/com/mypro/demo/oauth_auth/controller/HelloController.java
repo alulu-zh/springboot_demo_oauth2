@@ -23,6 +23,7 @@ public class HelloController {
     }
     @GetMapping(value = "/user/me", produces = "application/json")
     public User user(Principal principal) {
+        log.info("zhouhuxxx: iam coming user me!!!");
         if (principal != null) {
             OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
             Authentication authentication = oAuth2Authentication.getUserAuthentication();

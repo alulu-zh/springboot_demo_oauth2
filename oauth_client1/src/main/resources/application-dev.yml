@@ -1,0 +1,79 @@
+server:
+  port: 7211
+management:
+  server:
+    port: 7212
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#spring:
+#  datasource:
+#    username: root
+#    password: 123456
+#    url: jdbc:mysql://localhost:3306/oauth2_demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#mybatis:
+#  mapper-locations: classpath:mapping/*Mapper.xml
+#  type-aliases-package: com.mypro2020.demo.springboot.mysql_demo.entity
+
+logging:
+  level:
+    root: info
+    org.springframework: DEBUG
+  config: classpath:logback-dev.xml
+  file:
+    path: ./logs
+
+
+spring:
+  thymeleaf:
+#    prefix: "classpath:/templates/"
+#    suffix: ".html"
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 75b6a9754d3053756937
+            client-secret: fa9eb796b257501ccd5b48c43c5776f308db012b
+          google:
+            client-id: 75b6a9754d3053756937
+            client-secret: fa9eb796b257501ccd5b48c43c5776f308db012b
+          facebook:
+            client-id: 75b6a9754d3053756937
+            client-secret: fa9eb796b257501ccd5b48c43c5776f308db012b
+          myapp:
+            client-id: myapp_client
+            client-secret: 654321
+            client-name: myapp
+            scope: read_user
+            provider: myapp-provider
+            redirect-uri: "http://127.0.0.1:7211/login/oauth2/code/myapp"
+#            redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+        provider:
+          myapp-provider:
+            token-uri: http://localhost:7011/oauth/token
+            authorization-uri: http://localhost:7011/oauth/authorize
+            user-info-uri: http://localhost:7111/user/me
+            user-name-attribute: name
+
+#auth-server: http://localhost:8111 # 认证服务器地址
+#
+#security:
+#  oauth2:
+#    client:
+#      client-id: testclient # 授权服务器配置的client id
+#      client-secret: testclient # 授权服务器配置的client secret
+#      scope: admin
+#      access-token-uri: ${auth-server}/oauth/token # 获取access token接口
+#      user-authorization-uri: ${auth-server}/oauth/authorize #  获取Authorization Code接口
+#    resource:
+#      token-info-uri: ${auth-server}/oauth/check_token # 验证token的接口
+#      user-info-uri: ${auth-server}/user # 一个可以获取认证授权的自定义接口，可以在授权服务器，也可以在其他服务器上
+#      prefer-token-info: true # 如果同时配置了token-info-uri 和 user-info-uri，这个现象设置使用哪个取验证授权

@@ -20,6 +20,9 @@
         <module>oauth_client</module>
         <module>oauth_auth</module>
         <module>oauth_login</module>
+        <module>oauth_auth1</module>
+        <module>oauth_resource1</module>
+        <module>oauth_client1</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -27,6 +30,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>8.19</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-oauth2-client</artifactId>

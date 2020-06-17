@@ -4,9 +4,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.client.endpoint.AbstractOAuth2AuthorizationGrantRequest;
+import org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AuthorizationCodeGrantRequest;
 
 //@Configuration
-//@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = true)
 public class MyWebConfig extends WebSecurityConfigurerAdapter {
 //    private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 //    private final ClientRegistrationRepository clientRegistrationRepository;
@@ -22,9 +26,13 @@ public class MyWebConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/login**", "/error**").permitAll()
+                .antMatchers("/user/zhouhu1").permitAll()
+                .antMatchers("/user/zhouhu2").authenticated()
                 .anyRequest().authenticated()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
-                .and().oauth2Login();
+                .and()
+                .oauth2Login();
+//                .successHandler();
 //                .loginPage("/loginoauth")
 //                .defaultSuccessUrl("/loginsucess")
 //                .authorizationEndpoint()
@@ -35,4 +43,6 @@ public class MyWebConfig extends WebSecurityConfigurerAdapter {
 //                .authorizedClientService(oAuth2AuthorizedClientService)
 //                .and().oauth2Client();
     }
+
+
 }

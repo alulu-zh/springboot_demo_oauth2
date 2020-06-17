@@ -15,14 +15,4 @@ public class UserEndpoint {
     public String hello(@PathVariable(name = "name") String name) {
         return String.format("oauth_client1 user: %s\n", name);
     }
-
-    @GetMapping("/myindex")
-    public String index(Model model,
-                        @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
-                        @AuthenticationPrincipal OAuth2User oauth2User) {
-        model.addAttribute("userName", oauth2User.getName());
-        model.addAttribute("clientName", authorizedClient.getClientRegistration().getClientName());
-        model.addAttribute("userAttributes", oauth2User.getAttributes());
-        return "index";
-    }
 }
